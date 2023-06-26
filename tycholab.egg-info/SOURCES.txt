@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+tycholab/__init__.py
+tycholab/api.py
+tycholab.egg-info/PKG-INFO
+tycholab.egg-info/SOURCES.txt
+tycholab.egg-info/dependency_links.txt
+tycholab.egg-info/top_level.txt
