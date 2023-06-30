@@ -6,13 +6,13 @@ class VectorDataStore:
         self.base_url = 'https://www.tychos.ai/api/'
         # self.base_url = 'http://localhost:3000/api/'
 
-    def query(self, index_name, query_string, limit):
+    def query(self, name, query_string, limit):
 
         # send query request to vector data store
         url = f'{self.base_url}/query-vector-store'
         headers = {'api_key': self.api_key}
         payload = {
-                    'index_name': index_name,
+                    'name': name,
                     'query_string': query_string,
                     'top': limit,
                 }
