@@ -6,4 +6,9 @@ setup(
     install_requires=[
         'requests',
     ],
+    entry_points={
+        'console_scripts': [
+            'tychos-cli=tychos.cli:main',
+        ],
+    },
 )

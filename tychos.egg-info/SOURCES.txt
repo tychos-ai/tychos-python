@@ -2,12 +2,13 @@ LICENSE
 README.md
 setup.py
 tychos/__init__.py
-tychos/api.py
+tychos/cli.py
 tychos/vector.py
 tychos/vector_data_store.py
 tychos.egg-info/PKG-INFO
 tychos.egg-info/SOURCES.txt
 tychos.egg-info/dependency_links.txt
+tychos.egg-info/entry_points.txt
 tychos.egg-info/requires.txt
 tychos.egg-info/top_level.txt
 tychos/helpers/__init__.py

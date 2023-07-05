@@ -1,0 +1,2 @@
+[console_scripts]
+tychos-cli = tychos.cli:main
