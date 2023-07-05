@@ -11,7 +11,7 @@ You don't need this source code unless you want to modify the package. If you ju
 want to use the package, just run:
 
 ```sh
-pip install --upgrade tychos
+pip install tychos
 ```
 
 Install from source with:
@@ -36,9 +36,15 @@ tychos.api_key = "sk_a9adji08..."
 ```
 
 Query live vector datasets
-```
+```python
 # initialize data store with API key
 data_store = tychos.VectorDataStore(api_key="sk_a9adji08...")
+
+# list available datasets
+datasets = data_store.list()
+
+# get name of the first dataset's id
+print(datasets.data[0].name)
 
 # query the data store object
 query_results = data_store.query(
@@ -60,7 +66,7 @@ tychos-cli query --api-key <YOUR-API-KEY> --name pub-med-abstracts --query-strin
 ```
 
 ## Datasets available
-We currently support a handful of research article datasets. If there's a particular dataset you'd like to incorporate into your LLM application, feel free to [reach out][twitter].
+We currently support a handful of research datasets. If there's a particular dataset you'd like to incorporate into your LLM application, feel free to [reach out][twitter].
 
 ### Vector datasets
 -   PubMed abstracts ([source][pub-med]): 33.2M documents, updated daily at 07:00 UTC.

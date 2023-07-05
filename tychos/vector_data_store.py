@@ -30,3 +30,13 @@ class VectorDataStore:
         response.raise_for_status()
 
         return response.json()
+    
+    def list(self):
+        url = f'{self.base_url}/datasets'
+        headers = {'api_key': self.api_key}
+        response = requests.get(url=url, headers=headers)
+
+        # error handling
+        response.raise_for_status()
+
+        return response.json()
