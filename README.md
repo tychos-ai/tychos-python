@@ -2,7 +2,7 @@
 The Tychos Python library provides convenient access to the Tychos API from
 applications written in the Python language. The Tychos API allows you to query live, hosted vector datasets in your LLM application without needing to manage your own vector database / embedding pipelines.
 
-You can find usage examples for the Tychos Python library in our [BioMed Demo App](https://demo.tychos.ai/) and the [/demo repo folder](https://github.com/tychos-lab/tychos).
+You can find usage examples for the Tychos Python library in our [BioMed Demo App](https://demo.tychos.ai/) and the [/demo repo folder](https://github.com/tychos-ai/tychos).
 
 
 ## Installation
