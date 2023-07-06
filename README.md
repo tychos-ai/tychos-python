@@ -74,7 +74,7 @@ We currently support a handful of research datasets. If there's a particular dat
 
 
 ## Feedback and support
-If you'd like to provide feedback, run into issues, or need support using embeddings, feel free to [reach out][twitter] or raise issues via GitHub.
+If you'd like to provide feedback, run into issues, or need support using embeddings, feel free to [reach out][twitter] or raise an issue via GitHub.
 
 
 [api-keys]: https://tychos.ai/
