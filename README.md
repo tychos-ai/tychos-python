@@ -54,7 +54,7 @@ query_results = data_store.query(
 )
 
 # print the metadata associated with the first result
-print(query_results[0].payload)
+print(query_results[0]['payload'])
 ```
 
 ## Command-line interface
