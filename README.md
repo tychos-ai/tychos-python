@@ -44,7 +44,7 @@ data_store = tychos.VectorDataStore(api_key="sk_a9adji08...")
 datasets = data_store.list()
 
 # get name of the first dataset's id
-print(datasets.data[0].name)
+print(datasets['data'][0]['name'])
 
 # query the data store object
 query_results = data_store.query(
