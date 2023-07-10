@@ -1,4 +1,8 @@
 from .vector_data_store import VectorDataStore
-from .vector import _Vector
 
-api_key = None
+class Tychos:
+    def __init__(self):
+        self.api_key = None
+        self.VectorDataStore = VectorDataStore
+
+tychos = Tychos()
