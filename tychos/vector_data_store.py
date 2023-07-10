@@ -1,15 +1,13 @@
+import os
 import requests
-import unkey
-import asyncio
 from .vector import _Vector
-from . import api_key
 
 class VectorDataStore:
-    def __init__(self):
-        self.api_key = api_key
-        self.base_url = 'https://www.tychos.ai/api/'
-        # self.base_url = 'http://localhost:3000/api/'
-        self.vector = _Vector()
+    def __init__(self, api_key=None):
+        self.api_key = api_key or os.getenv('TYCHOS_API_KEY')
+        # self.base_url = 'https://www.tychos.ai/api/'
+        self.base_url = 'http://localhost:3001/api/'
+        self.vector = _Vector(api_key=self.api_key)
 
     def query(self, name, query_string, limit):
         if self.api_key is None:

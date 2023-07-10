@@ -3,7 +3,7 @@ import argparse
 from .vector_data_store import VectorDataStore
 
 def query(args):
-    tds = VectorDataStore(args.api_key)
+    tds = VectorDataStore(api_key=args.api_key)
     result = tds.query(args.name, args.query_string, args.limit)
     print(result)
 
