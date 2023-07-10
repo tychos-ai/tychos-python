@@ -2,13 +2,13 @@ import requests
 import unkey
 import asyncio
 from .vector import _Vector
-from . import tychos
+from . import api_key
 
 class VectorDataStore:
     def __init__(self):
-        if tychos.api_key is None:
+        if api_key is None:
             raise ValueError("API key not set. Please set the API key using 'tychos.api_key = <your_api_key>'. If you need to create an API key, you can go so at tychos.ai")
-        self.api_key = tychos.api_key
+        self.api_key = api_key
         self.base_url = 'https://www.tychos.ai/api/'
         # self.base_url = 'http://localhost:3000/api/'
         self.start()
