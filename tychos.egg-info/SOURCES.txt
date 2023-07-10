@@ -3,6 +3,7 @@ README.md
 setup.py
 tychos/__init__.py
 tychos/cli.py
+tychos/config.py
 tychos/vector.py
 tychos/vector_data_store.py
 tychos.egg-info/PKG-INFO

@@ -27,18 +27,23 @@ python setup.py install
 ## Usage
 
 The library needs to be configured with your account's secret key which is
-available via the [Tychos Website][api-keys]. Set `tychos.api_key` to its
-value:
+available via the [Tychos Website][api-keys]. Either set the TYCHOS_API_KEY environment variable before using the library:
 
 ```python
 import tychos
-tychos.api_key = "sk_a9adji08..."
+export TYCHOS_API_KEY='sk_a9adj...'
+```
+
+Or initialize the VectorDataStore using an api_key:
+```python
+import tychos
+data_store = tychos.VectorDataStore(api_key="sk_a9adj...")
 ```
 
 Query live vector datasets
 ```python
-# initialize data store with API key
-data_store = tychos.VectorDataStore(api_key="sk_a9adji08...")
+# initialize data store
+data_store = tychos.VectorDataStore()
 
 # list available datasets
 datasets = data_store.list()
