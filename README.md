@@ -34,7 +34,7 @@ import tychos
 export TYCHOS_API_KEY='sk_a9adj...'
 ```
 
-Or initialize the VectorDataStore using an api_key:
+Or initialize the VectorDataStore using an API key:
 ```python
 import tychos
 data_store = tychos.VectorDataStore(api_key="sk_a9adj...")
