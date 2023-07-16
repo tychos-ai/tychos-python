@@ -5,7 +5,7 @@ from .vector import _Vector
 class VectorDataStore:
     def __init__(self, api_key=None):
         self.api_key = api_key or os.getenv('TYCHOS_API_KEY')
-        self.base_url = 'https://www.tychos.ai/api/'
+        self.base_url = 'https://www.api.tychos.ai/api/'
         # self.base_url = 'http://localhost:3001/api/'
         self.vector = _Vector(api_key=self.api_key)
 
@@ -20,7 +20,7 @@ class VectorDataStore:
         )
 
         # send query request to vector data store
-        url = f'{self.base_url}/query-vector-store'
+        url = f'{self.base_url}query-vector-store'
         headers = {'api_key': self.api_key}
         payload = {
                     'name': name,
@@ -28,6 +28,7 @@ class VectorDataStore:
                     'top': limit,
                 }
         response = requests.post(url=url, headers=headers, json=payload)
+        
 
         # error handling
         response.raise_for_status()
@@ -37,7 +38,7 @@ class VectorDataStore:
     def list(self):
         if self.api_key is None:
             raise ValueError("API key not set. Please set the API key using 'tychos.api_key = <your_api_key>'. If you need to create an API key, you can go so at tychos.ai")
-        url = f'{self.base_url}/datasets'
+        url = f'{self.base_url}datasets'
         headers = {'api_key': self.api_key}
         response = requests.get(url=url, headers=headers)
 
