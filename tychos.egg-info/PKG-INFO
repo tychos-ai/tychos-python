@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: tychos
-Version: 0.0.7
+Version: 0.0.8
 Summary: Python client library for the Tychos API.
 Requires-Python: >=3.6
 Description-Content-Type: text/markdown
