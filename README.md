@@ -44,12 +44,6 @@ Query live vector datasets
 # initialize data store
 data_store = tychos.VectorDataStore()
 
-# list available datasets
-datasets = data_store.list()
-
-# get name of the first dataset's id
-print(datasets['data'][0]['name'])
-
 # query the data store object
 query_results = data_store.query(
     index_name = "pub-med-abstracts", # dataset
@@ -70,10 +64,10 @@ tychos-cli query --api-key <YOUR-API-KEY> --name pub-med-abstracts --query-strin
 ```
 
 ## Datasets available
-We currently support a handful of research datasets. If there's a particular dataset you'd like to incorporate into your LLM application, feel free to [reach out][twitter].
+We currently support the PubMed dataset and have plans to add additional sources in the coming weeks. If there's a particular dataset you'd like to incorporate into your LLM application, feel free to [reach out][twitter].
 
 ### Vector datasets
--   PubMed abstracts ([source][pub-med]): 33.2M documents, updated daily at 07:00 UTC.
+-   PubMed abstracts ([source][pub-med]): 33.8M documents, updated daily at 07:00 UTC.
 
 
 
