@@ -5,8 +5,7 @@ from .vector import _Vector
 class VectorDataStore:
     def __init__(self, api_key=None):
         self.api_key = api_key or os.getenv('TYCHOS_API_KEY')
-        # self.base_url = 'https://api.tychos.ai/v1/'
-        self.base_url = 'http://localhost:3001/v1/'
+        self.base_url = 'https://api.tychos.ai/v1/'
         self.vector = _Vector(api_key=self.api_key)
 
     def query(self, name, query_string, limit):

@@ -4,8 +4,7 @@ import requests
 class _Vector:
     def __init__(self, api_key=None):
         self.api_key = api_key or os.getenv('TYCHOS_API_KEY')
-        # self.base_url = 'https://api.tychos.ai/v1/'
-        self.base_url = 'http://localhost:3001/v1/'
+        self.base_url = 'https://api.tychos.ai/v1/'
         
     def create(self, type, input_text, model, model_provider_key=None):
         if self.api_key is None:
