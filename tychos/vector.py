@@ -4,8 +4,8 @@ import requests
 class _Vector:
     def __init__(self, api_key=None):
         self.api_key = api_key or os.getenv('TYCHOS_API_KEY')
-        self.base_url = 'https://api.tychos.ai/api/'
-        # self.base_url = 'http://localhost:3001/api/'
+        # self.base_url = 'https://api.tychos.ai/v1/'
+        self.base_url = 'http://localhost:3001/v1/'
         
     def create(self, type, input_text, model, model_provider_key=None):
         if self.api_key is None:
@@ -13,7 +13,7 @@ class _Vector:
         if type == "text_embedding":
             if model == "text-embedding-ada-002":
                 try:
-                    url = f'{self.base_url}create-vector'
+                    url = f'{self.base_url}vector/create'
                     headers = {'api_key': self.api_key}
                     payload = {
                                 'model_provider_key': model_provider_key,

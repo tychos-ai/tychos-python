@@ -12,4 +12,3 @@ tychos.egg-info/dependency_links.txt
 tychos.egg-info/entry_points.txt
 tychos.egg-info/requires.txt
 tychos.egg-info/top_level.txt
-tychos/helpers/__init__.py
