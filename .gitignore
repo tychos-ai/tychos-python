@@ -1,1 +1,6 @@
 .env
+dist/
+build/
+tychos/__pycache__
+*.egg
+*.egg-info
