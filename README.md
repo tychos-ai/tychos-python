@@ -67,7 +67,7 @@ tychos-cli query --api-key <YOUR-API-KEY> --name pub-med-abstracts --query-strin
 We currently support the PubMed dataset and have plans to add additional sources in the coming weeks. If there's a particular dataset you'd like to incorporate into your LLM application, feel free to [reach out][twitter].
 
 ### Vector datasets
--   PubMed abstracts ([source][pub-med]): 33.8M documents, updated daily at 07:00 UTC.
+-   PubMed abstracts ([source][pub-med]): 35.5M documents, updated daily at 07:00 UTC.
 
 
 
