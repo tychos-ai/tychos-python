@@ -18,6 +18,14 @@ class VectorDataStore:
             model="text-embedding-ada-002"
         )
 
+        # validate index name
+        available_indices = ['pub-med-abstracts', 'arxiv-abstracts']
+        if not isinstance(name, list):
+            name = [name]
+        invalid_names = [n for n in name if n not in available_indices]
+        if invalid_names:
+            raise ValueError(f"Invalid index name(s): {', '.join(invalid_names)}. The current available datasets are: {', '.join(available_indices)}")
+        
         # send query request to vector data store
         url = f'{self.base_url}vector_data_store/query'
         headers = {'api_key': self.api_key}
