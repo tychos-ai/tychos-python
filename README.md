@@ -44,11 +44,18 @@ Query live vector datasets
 # initialize data store
 data_store = tychos.VectorDataStore()
 
-# query the data store object
+# query a single dataset from the data store object
 query_results = data_store.query(
-    index_name = "pub-med-abstracts", # dataset
+    name = "pub-med-abstracts", # dataset index can be a string or an array
     query_string = "What is the latest research on molecular peptides", # search string
     limit = 5, # number of results
+)
+
+# query multiple datasets and return the global top results
+query_results = data_store.query(
+    name = ["arxiv-abstracts", "pub-med-abstracts"], # dataset index can be a string or an array
+    query_string = "What is the latest research on molecular peptides", # search string
+    limit = 5, # number of results (across all datasets queried)
 )
 
 # print the metadata associated with the first result
@@ -64,17 +71,20 @@ tychos-cli query --api-key <YOUR-API-KEY> --name pub-med-abstracts --query-strin
 ```
 
 ## Datasets available
-We currently support the PubMed dataset and have plans to add additional sources in the coming weeks. If there's a particular dataset you'd like to incorporate into your LLM application, feel free to [reach out][twitter].
+We currently support the full PubMed and ArXiv datasets and have plans to add additional sources in the coming weeks. If there's a particular dataset you'd like to incorporate into your LLM application, feel free to [reach out][twitter] or raise a GitHub issue.
 
 ### Vector datasets
--   PubMed abstracts ([source][pub-med]): 35.5M documents, updated daily at 07:00 UTC.
-
+| Dataset | Name | Size | Update Cadence | Update Time |
+| --------------- | --------------- | --------------- | --------------- | --------------- |
+| PubMed Abstracts ([source][pub-med]) | pub-med-abstracts | 35.5M documents | Daily | 07:00 UTC |
+| Arxiv Abstracts ([source][arxiv]) | arxiv-abstracts | 2.3M documents | Weekly | 07:00 UTC on Sunday|
 
 
 ## Feedback and support
-If you'd like to provide feedback, run into issues, or need support using embeddings, feel free to [reach out][twitter] or raise an issue via GitHub.
+If you'd like to provide feedback, run into issues, or need support using embeddings, feel free to [reach out][twitter] or raise a GitHub issue.
 
 
 [api-keys]: https://tychos.ai/
 [twitter]: https://twitter.com/etpuisfume
 [pub-med]: https://pubmed.ncbi.nlm.nih.gov/download/
+[arxiv]: https://info.arxiv.org/help/bulk_data/index.html
