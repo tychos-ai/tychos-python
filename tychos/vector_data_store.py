@@ -5,7 +5,7 @@ from .vector import _Vector
 class VectorDataStore:
     def __init__(self, api_key=None):
         self.api_key = api_key or os.getenv('TYCHOS_API_KEY')
-        self.base_url = 'https://api.tychos.ai/v1/'
+        self.base_url = 'https://api.tychos.ai/'
         self.vector = _Vector(api_key=self.api_key)
 
     def query(self, name, query_string, limit):
@@ -27,7 +27,7 @@ class VectorDataStore:
             raise ValueError(f"Invalid index name(s): {', '.join(invalid_names)}. The current available datasets are: {', '.join(available_indices)}")
         
         # send query request to vector data store
-        url = f'{self.base_url}vector_data_store/query'
+        url = f'{self.base_url}v1/vector_data_store/query'
         headers = {'api_key': self.api_key}
         payload = {
                     'name': name,
@@ -44,7 +44,7 @@ class VectorDataStore:
     def list(self):
         if self.api_key is None:
             raise ValueError("API key not set. Please set the API key using 'tychos.api_key = <your_api_key>'. If you need to create an API key, you can go so at tychos.ai")
-        url = f'{self.base_url}vector_data_store/list'
+        url = f'{self.base_url}v1/vector_data_store/list'
         headers = {'api_key': self.api_key}
         response = requests.get(url=url, headers=headers)
 
