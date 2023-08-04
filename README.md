@@ -44,6 +44,12 @@ Query live vector datasets
 # initialize data store
 data_store = tychos.VectorDataStore()
 
+# list available datasets
+datasets = data_store.list()
+
+# get name of the first dataset's id
+print(datasets['data'][0]['name'])
+
 # query a single dataset from the data store object
 query_results = data_store.query(
     name = "pub-med-abstracts", # dataset index can be a string or an array
