@@ -1,6 +1,7 @@
 import os
 import requests
 from .vector import _Vector
+from .helpers.validation_checks import validate_query_filter
 
 class VectorDataStore:
     def __init__(self, api_key=None):
@@ -8,7 +9,7 @@ class VectorDataStore:
         self.base_url = 'https://api.tychos.ai/'
         self.vector = _Vector(api_key=self.api_key)
 
-    def query(self, name, query_string, limit):
+    def query(self, name, query_string, limit, query_filter=None):
         if self.api_key is None:
             raise ValueError("API key not set. Please set the API key using 'tychos.api_key = <your_api_key>'. If you need to create an API key, you can go so at tychos.ai")
         # vectorize query string
@@ -34,6 +35,9 @@ class VectorDataStore:
                     'query_vector': query_vector,
                     'top': limit,
                 }
+        if query_filter is not None:
+            validate_query_filter(query_filter)
+            payload['query_filter'] = query_filter
         response = requests.post(url=url, headers=headers, json=payload)
 
         # error handling
