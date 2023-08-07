@@ -80,10 +80,10 @@ tychos-cli query --api-key <YOUR-API-KEY> --name pub-med-abstracts --query-strin
 We currently support the full PubMed and ArXiv datasets and have plans to add additional sources in the coming weeks. If there's a particular dataset you'd like to incorporate into your LLM application, feel free to [reach out][twitter] or raise a GitHub issue.
 
 ### Vector datasets
-| Dataset | Name | Size | Update Cadence | Update Time |
-| --------------- | --------------- | --------------- | --------------- | --------------- |
-| PubMed Abstracts ([source][pub-med]) | pub-med-abstracts | 35.5M documents | Daily | 07:00 UTC |
-| Arxiv Abstracts ([source][arxiv]) | arxiv-abstracts | 2.3M documents | Weekly | 07:00 UTC on Sunday|
+| Dataset | Size | Update Cadence | Metadata Fields |
+| --------------- | --------------- | --------------- | --------------------- | 
+| pub-med-abstracts ([source][pub-med]) | 35.5M documents | Daily at 07:00 UTC | PMID, PMCID, ArticleTitle, Abstract, Authors, Abstract_URL, PMC_URL, JournalTitle, Publication Date |
+| arxiv-abstracts ([source][arxiv]) | 2.3M documents | Weekly at 07:00 UTC (Sunday)| id, doi, paper_title, abstract, authors, categories, abstract_url, full_text_url, journal, pub_date, update_date |
 
 
 ## Feedback and support
