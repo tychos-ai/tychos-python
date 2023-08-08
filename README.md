@@ -125,8 +125,8 @@ We currently support the full PubMed and ArXiv datasets and have plans to add ad
 ### Vector datasets
 | Dataset | Name | Size | Syncs | Metadata Fields |
 | :--------------- | :--------------- | :--------------- | :--------------- | :--------------------- | 
-| PubMed ([source][pub-med]) | pub-med-abstracts | 35.5M documents | Daily at 07:00 UTC | **All fields:**  PMID, PMCID, Title, Abstract, Authors, Abstract_URL, PMC_URL, Journal, Publication Date <br> **Query filterable:** Title, Authors, Journal, Publication Date |
-| ArXiv ([source][arxiv]) | arxiv-abstracts | 2.3M documents | Weekly at 07:00 UTC (Sunday) | **All fields:** id, doi, paper_title, abstract, authors, categories, abstract_url, full_text_url, journal, pub_date, update_date <br> **Query filterable:** paper_title, authors, categories, journal, pub_date, update_date |
+| PubMed ([source][pub-med]) | pub-med-abstracts | 35.5M documents | Daily at 07:00 UTC | **All fields:**  PMID, PMCID, Title, Abstract, Authors, Abstract_URL, PMC_URL, Journal, Publication Date <br> **Query filterable:** Authors, Journal, Publication Date |
+| ArXiv ([source][arxiv]) | arxiv-abstracts | 2.3M documents | Weekly at 07:00 UTC (Sunday) | **All fields:** id, doi, paper_title, abstract, authors, categories, abstract_url, full_text_url, journal, pub_date, update_date <br> **Query filterable:** authors, categories, journal, pub_date, update_date |
 
 ## Feedback and support
 If you'd like to provide feedback, run into issues, or need support using embeddings, feel free to [reach out][twitter] or raise a GitHub issue.
