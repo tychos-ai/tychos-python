@@ -91,6 +91,7 @@ query_results = data_store.query(
     query_filter = {"Publication Date": {"$gt":"1989-12-31"}} 
     limit = 5,
 )
+
 # filter ArXiv query on papers written by LeCun, Hinton and Bengio
 query_results = data_store.query(
     name = "arxiv-abstracts",
@@ -99,6 +100,13 @@ query_results = data_store.query(
     limit = 5,
 )
 
+# filter ArXiv query on papers published between 2000 and 2010 (inclusive)
+query_results = data_store.query(
+    name = "arxiv-abstracts",
+    query_string = "What is the latest research on molecular peptides",
+    query_filter = {"pub_date": {"$gte":"2000-01-01", "$lte":"2010-12-31"}}
+    limit = 5,
+)
 ```
 
 See the datasets table below for the metadata fields available on each. As we expand datasets, we plan to make available a set of general filters (e.g., date, author, type) for queries across multiple datasets.
