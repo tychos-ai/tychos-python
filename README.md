@@ -71,16 +71,16 @@ print(query_results[0]['payload'])
 ### Filter queries on metadata fields
 You can filter queries of individual datasets by passing a query_filter dict that specifies the field, operator and condition to apply. The following operators are available:
 
-| Operator | Description |
+| Operator | Checks if the field value is... |
 | :--- | :--- |
-| $eq | Equal to. Checks if the field value is equal to the specified value.|
-| $ne | Not equal to. Checks if the field value is not equal to the specified value.|
-| $gt | Greater than. Checks if the field value is greater than the specified value.|
-| $gte | Greater than or equal to. Checks if the field value is greater than or equal to the specified value.|
-| $lt | Less than. Checks if the field value is less than the specified value.|
-| $lte | Less than or equal to. Checks if the field value is less than or equal to the specified value.|
-| $in | In array. Checks if the field value is within the specified array.|
-| $nin | Not in array. Checks if the field value is not within the specified array.|
+| $eq | **equal to** the specified value|
+| $ne | **not equal to** the specified value|
+| $gt | **greater than** the specified value|
+| $gte | **greater than or equal** to the specified value|
+| $lt | **less than** the specified value|
+| $lte | **less than or equal** to the specified value|
+| $in | **within** the specified array|
+| $nin | **not within** the specified array|
 
 Example queries using filters:
 ```python
