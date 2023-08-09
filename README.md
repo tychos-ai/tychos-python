@@ -84,7 +84,7 @@ Example queries using filters:
 query_results = data_store.query(
     name = "pub-med-abstracts",
     query_string = "What is the latest research on molecular peptides",
-    query_filter = {"Journal": {"$gt":"New England Journal of Medicine"}}
+    query_filter = {"Journal": {"$eq":"New England Journal of Medicine"}}
     limit = 5,
 )
 
