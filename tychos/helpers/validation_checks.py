@@ -31,6 +31,6 @@ def validate_query_filter(query_filter):
             else:
                 raise ValueError(f"The operand of '{operator}' must be an integer or date string.")
         elif operator in ['$in', '$nin']:
-            if not isinstance(operand, list) or not all(isinstance(i, int) or (isinstance(i, str) and date_pattern.fullmatch(i)) for i in operand):
-                raise ValueError(f"The operand of '{operator}' must be a list of integers or date strings in ISO 8601 format.")
+            if not isinstance(operand, list) or not all(isinstance(i, (int, str)) for i in operand):
+                raise ValueError(f"The operand of '{operator}' must be a list of integers or strings.")
     return True
