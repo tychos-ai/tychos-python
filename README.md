@@ -109,7 +109,7 @@ tychos-cli query --api-key <YOUR-API-KEY> --name pub-med-abstracts --query-strin
 ```
 
 ## Datasets available
-We currently support the full PubMed and ArXiv datasets and have plans to add additional sources in the coming weeks. If there's a particular dataset you'd like to incorporate into your LLM application, feel free to [reach out][twitter] or raise a GitHub issue.
+We currently support the full PubMed, US Patent, and ArXiv datasets and have plans to add additional sources in the coming weeks. If there's a particular dataset you'd like to incorporate into your LLM application, feel free to [reach out][twitter] or raise a GitHub issue.
 
 ### Vector datasets
 | Dataset | Name | Size | Syncs | Metadata Fields |
