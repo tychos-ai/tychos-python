@@ -115,6 +115,7 @@ We currently support the full PubMed and ArXiv datasets and have plans to add ad
 | Dataset | Name | Size | Syncs | Metadata Fields |
 | :--------------- | :--------------- | :--------------- | :--------------- | :--------------------- | 
 | PubMed ([source][pub-med]) | pub-med-abstracts | 35.5M documents | Daily at 07:00 UTC | **All fields:**  PMID, PMCID, Title, Abstract, Authors, Abstract_URL, PMC_URL, Journal, Publication Date <br> **Query filterable:** Authors, Journal |
+| US Patents ([source][patents]) | us-patents | 6.9M patents | Monthly at 07:00 UTC (1st of Month) | **All fields:** patent_id, title, summary, claims, patent_url, inventors, classification, type, assignees, location, date_filed, date_granted, term <br> **Query filterable:** coming soon! |
 | ArXiv ([source][arxiv]) | arxiv-abstracts | 2.3M documents | Weekly at 07:00 UTC (Sunday) | **All fields:** id, doi, paper_title, abstract, authors, categories, abstract_url, full_text_url, journal, pub_date, update_date <br> **Query filterable:** authors, categories, journal |
 
 ## Feedback and support
@@ -125,3 +126,4 @@ If you'd like to provide feedback, run into issues, or need support using embedd
 [twitter]: https://twitter.com/etpuisfume
 [pub-med]: https://pubmed.ncbi.nlm.nih.gov/download/
 [arxiv]: https://info.arxiv.org/help/bulk_data/index.html
+[patents]: https://patentsview.org/download/data-download-tables
