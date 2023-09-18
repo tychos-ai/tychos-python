@@ -20,7 +20,7 @@ class VectorDataStore:
         )
 
         # validate index name
-        available_indices = ['pub-med-abstracts', 'arxiv-abstracts', 'us-patents']
+        available_indices = ['pub-med-abstracts', 'arxiv-abstracts', 'us-patents', 'biorxiv', 'medrxiv']
         if not isinstance(name, list):
             name = [name]
         invalid_names = [n for n in name if n not in available_indices]
