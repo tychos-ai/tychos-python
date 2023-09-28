@@ -1,5 +1,6 @@
 from .vector_data_store import VectorDataStore
 from .vector import _Vector
+from .data import Data
 
 import os
 
