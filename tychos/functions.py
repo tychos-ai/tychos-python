@@ -51,7 +51,6 @@ class Functions:
         response = openai.ChatCompletion.create(
             model=model,
             messages=messages,
-            max_retries=2,
             functions=functions,
             function_call={"name": schema_name},
         )
