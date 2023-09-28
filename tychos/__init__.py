@@ -1,6 +1,6 @@
 from .vector_data_store import VectorDataStore
 from .vector import _Vector
-from .functions import Functions as functions
+from .data_tools import DataTools as data_tools
 
 import os
 
