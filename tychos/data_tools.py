@@ -29,13 +29,19 @@ class DataTools:
         return fields
 
     def transform(data, target_schema, model="gpt-3.5-turbo", ai_infer=True):
-        '''
-        Takes unstructured text strings and transforms them into a desired schema using OpenAI and 
-        and Pydantic Models to ensure type consistency of the output. The default functionality is to allow
-        the AI model to infer output values when they are not explicitly in the input text (ai_infer=True).
-        This can be turned off by setting ai_infer=False, and is recommended to add error handling on the 
-        returned output and/or setting default field values on the target_schema.
-        '''
+        if not isinstance(data, str):
+            raise TypeError("data must be a string")
+
+        if not issubclass(target_schema, pydantic.BaseModel):
+            raise TypeError("target_schema must be a Pydantic Model")
+
+        allowed_models = ["gpt-3.5-turbo", "gpt-3.5-turbo-16k", "gpt-4", "gpt-4-32k"]
+        if model not in allowed_models:
+            raise ValueError(f"model must be one of the following OpenAI models: {allowed_models}")
+        
+        if not isinstance(ai_infer, bool):
+            raise TypeError("ai_infer must be a boolean")
+
         schema_name = target_schema.__name__
         schema = target_schema.model_json_schema()
 
