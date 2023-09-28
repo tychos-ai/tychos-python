@@ -28,26 +28,49 @@ class DataTools:
         
         return fields
 
-    def transform(data, target_schema, model="gpt-3.5-turbo"):
-        if not isinstance(data, str):
-            raise TypeError("data must be a text string")
-        if not issubclass(target_schema, pydantic.BaseModel):
-            raise TypeError("target_schema must be a subclass of pydantic.BaseModel")
+    def transform(data, target_schema, model="gpt-3.5-turbo", ai_infer=True):
+        '''
+        Takes unstructured text strings and transforms them into a desired schema using OpenAI and 
+        and Pydantic Models to ensure type consistency of the output. The default functionality is to allow
+        the AI model to infer output values when they are not explicitly in the input text (ai_infer=True).
+        This can be turned off by setting ai_infer=False, and is recommended to add error handling on the 
+        returned output and/or setting default field values on the target_schema.
+        '''
         schema_name = target_schema.__name__
         schema = target_schema.model_json_schema()
-        
-        messages = [
-            {"role": "user", 
-            "content": f"Use the supplied functions to parse the following text. Do not make up answers. If you can't find a value for a property, simply return None for that property: {data}"
-            }
-        ]
-        functions = [
-            {
-                "name": schema_name,
-                "description": target_schema.__doc__ or "Extracts data from unstructured text into a json schema that matches the output_cls. For missing values or data not found, do not hallucinate and only complete with 'None'",
-                "parameters": schema,
-            }
-        ]
+
+        if ai_infer:
+            messages = [
+                {"role": "system",
+                "content": "Infer data where it isn't explicitly stated for a property and make assumptions."
+                },
+                {"role": "user", 
+                "content": data
+                }
+            ]
+            functions = [
+                {
+                    "name": schema_name,
+                    "description": target_schema.__doc__ or "Extracts data from unstructured text into a json schema that matches the output_cls.",
+                    "parameters": schema,
+                }
+            ]
+        else:
+            messages = [
+                {"role": "system",
+                "content": "Do not make up answers or make assumptions. Return None (or the equivalent specified datatype) for properties that aren't found."
+                },
+                {"role": "user", 
+                "content": f"Do not make up answers or make assumptions. Return None for properties that aren't found: {data}"
+                }
+            ]
+            functions = [
+                {
+                    "name": schema_name,
+                    "description": target_schema.__doc__ or "Extracts data from unstructured text into a json schema that matches the output_cls.",
+                    "parameters": schema,
+                }
+            ]
         
         try:
             response = openai.ChatCompletion.create(
@@ -56,9 +79,10 @@ class DataTools:
                 functions=functions,
                 function_call={"name": schema_name},
             )
+            
+            function_args = json.loads(response["choices"][0]["message"]["function_call"]["arguments"], strict=False)
 
-            function_args = response["choices"][0]["message"]["function_call"]["arguments"]
-            result = target_schema(**json.loads(function_args))
-            return result
-        except (KeyError, pydantic.ValidationError, json.JSONDecodeError):
-            return {"error": "Failed to transform data"}
+            return target_schema(**function_args)
+
+        except (KeyError, pydantic.ValidationError, json.JSONDecodeError) as e:
+            return {"error": f"Failed to transform data due to {str(e)}"}
